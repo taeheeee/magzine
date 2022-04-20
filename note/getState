@@ -1,0 +1,2 @@
+getState().
+getState는 스토어에 있는 정보를 가지고 오는 것이다.

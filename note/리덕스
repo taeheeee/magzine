@@ -1,0 +1,52 @@
+1.state 
+->리덕스에서 저장하고 있는 상태값
+
+2.Action
+->상태에 변화가 필요할때 action을 발생시킨다. (나data바꿀래)
+{type:'LOAD',data:{...}}
+
+3.Action함수
+->그냥 action을 return하는 함수
+
+4.리듀서
+->액션을 dispatch하면 그다음 리듀서가 자동실행이된다.
+바꿔주라고 한 액션에 맞게 데이터를 바꾸고 스토어에 있는
+데이터 실제로 바꿔버린다.
+
+5.dispatch
+->액션을 디스패치한다== 발생시킨다
+
+6.미들웨어
+->만약 데이터를 외부(서버)에서 가져와야할때가 있을수있다.
+데이터를 바로 action creator로 수정하고 바로 리듀서에 넘겨줄수없다.
++추가작성필요
+
+* state를 직접 변경하지 못하고 dispatch를 발생시켜서 어떻게 바꿔줘해야 바뀐다.
+                            ->dispatch             ->Action         ->reducer를 이용해 실제로 값이바뀐다.
+
+
+
+*모듈안에 있는 리듀서를 묶어서 스토어를 만든다. 그리고 이 스토어를
+컴포넌트가 구독하도록 해주어야 한다. 컴포넌트에 스토어를 주입시키는방법은
+index.js에 Provider로 감싸준다.
+
+-------------------------------------------------------------------------------------------------------------
+위에서 만든 리덕스데이터를 이제 컴포넌트에서 사용하려면...=>리덕스훅을이용한다.
+1.데이터를 가지고 오려면
+=>useSelector훅 사용
+ex) 
+    import {useSelectoer} from 'react-redux';
+    const data = useSelector.((state)=>state);  //state란 리덕스가 가지고있는 전~체 데이터를 의미한다.
+
+
+
+2.데이터를 업데이트 하려면
+=>useDispatch훅 사용
+ex)
+    import {useDispatch} from 'react-redux';
+    const dispatch = useDispatch();
+
+    const addBucketList = () =>{
+        dispatch(creeateBucket(text.current.value));
+    }
+

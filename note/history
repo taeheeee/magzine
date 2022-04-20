@@ -1,0 +1,8 @@
+history.push 는 새로 페이지 이동시키는거고,
+history.replace는 지금 있는 페이지에서 갈아끼우는 것이다.
+
+history.replace를 이용해서 뒤로 가기를 이용하면 지금페이지로 돌아오지않지만,
+history.push는 지금있는 페이지로 다시돌아온다
+(when?)
+포스트작성페이지->로그인여부확인->로그인x->history.replace이용해서
+->로그인페이지 이동
